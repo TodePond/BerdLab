@@ -1,0 +1,109 @@
+<style>
+	body {
+		background-color: #171d28;
+		margin: 0px;
+		overflow: hidden;
+	}
+
+	marquee {
+		margin-top: 500px;
+	}
+
+	.berd {
+		width: calc(353px / 4 - 1px);
+		height: calc(274px / 4 - 1px);
+		display: block;
+		position: fixed;
+		left: calc(((543px - 353px) / 4 - 0px)/2);
+		top: calc(((558px - 274px) / 4 - 0px)/2);
+		background-size: contain;
+		text-decoration: none;
+		-webkit-appearance: none;
+	}
+
+	.berd:checked {
+		width: calc(543px / 4 - 1px);
+		height: calc(558px / 4 - 1px);
+		left: 0px;
+		top: 0px;
+		background-image: url("assets/cage.png");
+	}
+
+	.berd.ltr {
+		animation: flap 0.2s infinite, fly2 2.5s infinite;
+	}
+
+	.berd.ltr.d2 {
+		animation: flap 0.2s infinite, fly2 3s -1.5s infinite;
+	}
+
+	.berd.ltr:checked {
+		animation: fly2 2.5s infinite;
+		animation-play-state: paused;
+	}
+
+	.berd.ltr.d2:checked {
+		animation: fly2 3s -1.5s infinite;
+		animation-play-state: paused;
+	}
+
+	.berd.rtl {
+		animation: flap 0.2s infinite, fly 2.5s infinite;
+	}
+
+	.berd.rtl.d2 {
+		animation: flap 0.2s infinite, fly 3s -2s infinite;
+	}
+
+	.berd.rtl:checked {
+		animation: fly 2.5s infinite;
+		animation-play-state: paused;
+	}
+
+	.berd.rtl.d2:checked {
+		animation: fly 3s -2s infinite;
+		animation-play-state: paused;
+	}
+
+	:root {
+		--fly-length: 200px;
+	}
+
+	@keyframes fly {
+		0%, 100% {
+			transform: translate(0px, var(--fly-length)) rotate(5deg);
+		}
+		50% {
+			transform: translate(var(--fly-length), -5px);
+		}
+	}
+
+	@keyframes fly2 {
+		0%, 100% {
+			transform: translate(var(--fly-length), var(--fly-length)) rotate(-5deg);
+		}
+		50% {
+			transform: translate(0px, 0px) rotate(5deg);
+		}
+	}
+
+	@keyframes flap {
+		0% {
+			background-image: url("assets/berd0.png");
+		}
+		100% {
+			background-image: url("assets/berd1.png");
+		}
+	}
+
+
+</style>
+
+<div style="transform: translate(100px, 300px)"><input type=checkbox class="berd ltr"></input></div>
+<div style="transform: translate(500px, 200px)"><input type=checkbox class="berd ltr d2"></input></div>
+<div style="transform: translate(800px, 500px)"><input type=checkbox class="berd rtl d2"></input></div>
+<div style="transform: translate(1000px, 0px)"><input type=checkbox class="berd rtl"></input></div>
+<div style="transform: translate(200px, 0px)"><input type=checkbox class="berd rtl d2"></input></div>
+<div style="transform: translate(1200px, 600px)"><input type=checkbox class="berd ltr"></input></div>
+<div style="transform: translate(100px, 700px)"><input type=checkbox class="berd rtl"></input></div>
+<div style="transform: translate(1400px, 200px)"><input type=checkbox class="berd ltr d2"></input></div>
