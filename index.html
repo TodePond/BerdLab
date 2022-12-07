@@ -5,11 +5,20 @@
 		overflow: hidden;
 	}
 
-	marquee {
-		margin-top: 500px;
+	.berd {
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		background-color: #171d28;
 	}
 
-	.berd {
+	.berd[open] {
+		background-color: #171d2800;
+	}
+
+	.berd > summary {
 		width: calc(353px / 4 - 1px);
 		height: calc(274px / 4 - 1px);
 		display: block;
@@ -18,10 +27,10 @@
 		top: calc(((558px - 274px) / 4 - 0px)/2);
 		background-size: contain;
 		text-decoration: none;
-		-webkit-appearance: none;
+		z-index: 1;
 	}
 
-	.berd:checked {
+	.berd[open] > summary {
 		width: calc(543px / 4 - 1px);
 		height: calc(558px / 4 - 1px);
 		left: 0px;
@@ -29,38 +38,38 @@
 		background-image: url("assets/cage.png");
 	}
 
-	.berd.ltr {
+	.berd.ltr > summary {
 		animation: flap 0.2s infinite, fly2 2.5s infinite;
 	}
 
-	.berd.ltr.d2 {
+	.berd.ltr.d2 > summary {
 		animation: flap 0.2s infinite, fly2 3s -1.5s infinite;
 	}
 
-	.berd.ltr:checked {
+	.berd.ltr[open] > summary {
 		animation: fly2 2.5s infinite;
 		animation-play-state: paused;
 	}
 
-	.berd.ltr.d2:checked {
+	.berd.ltr.d2[open] > summary {
 		animation: fly2 3s -1.5s infinite;
 		animation-play-state: paused;
 	}
 
-	.berd.rtl {
+	.berd.rtl > summary {
 		animation: flap 0.2s infinite, fly 2.5s infinite;
 	}
 
-	.berd.rtl.d2 {
+	.berd.rtl.d2 > summary {
 		animation: flap 0.2s infinite, fly 3s -2s infinite;
 	}
 
-	.berd.rtl:checked {
+	.berd.rtl[open] > summary {
 		animation: fly 2.5s infinite;
 		animation-play-state: paused;
 	}
 
-	.berd.rtl.d2:checked {
+	.berd.rtl.d2[open] > summary {
 		animation: fly 3s -2s infinite;
 		animation-play-state: paused;
 	}
@@ -96,14 +105,36 @@
 		}
 	}
 
+	.victory {
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		color: white;
+		font-size: 100px;
+		text-align: center;
+		font-family: Rosario;
+		top: 200px;
+		font-weight: bold;
+	}
+
+	.box {
+		width: 100vw;
+		height: 100vh;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+	}
+
 
 </style>
 
-<div style="transform: translate(100px, 300px)"><input type=checkbox class="berd ltr"></input></div>
-<div style="transform: translate(500px, 200px)"><input type=checkbox class="berd ltr d2"></input></div>
-<div style="transform: translate(800px, 500px)"><input type=checkbox class="berd rtl d2"></input></div>
-<div style="transform: translate(1000px, 0px)"><input type=checkbox class="berd rtl"></input></div>
-<div style="transform: translate(200px, 0px)"><input type=checkbox class="berd rtl d2"></input></div>
-<div style="transform: translate(1200px, 600px)"><input type=checkbox class="berd ltr"></input></div>
-<div style="transform: translate(100px, 700px)"><input type=checkbox class="berd rtl"></input></div>
-<div style="transform: translate(1400px, 200px)"><input type=checkbox class="berd ltr d2"></input></div>
+<div class="victory">YOU WIN!!!</div>
+
+<details class="berd ltr"><summary style="margin: 300px 100px"></summary></details>
+<details class="berd ltr d2"><summary style="margin: 200px 500px"></summary></details>
+<details class="berd rtl d2"><summary style="margin: 500px 800px"></summary></details>
+<details class="berd rtl"><summary style="margin: 0px 1000px"></summary></details>
+<details class="berd rtl d2"><summary style="margin: 0px 200px"></summary></details>
+<details class="berd ltr"><summary style="margin: 600px 1200px"></summary></details>
+<details class="berd rtl"><summary style="margin: 700px 100px"></summary></details>
+<details class="berd ltr d2"><summary style="margin: 200px 1400px"></summary></details>
